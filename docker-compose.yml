@@ -1,14 +1,14 @@
 version: '3.8'
 services:
   mysql:
-    image: mysql:8.0
-    container_name: mysql_db
+    image: ${IMAGE_NAME}
+    container_name: ${CONTAINER_NAME}
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: db_crud
-      MYSQL_USER: nestjs
-      MYSQL_PASSWORD: crud
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD_ROOT_API}
+      MYSQL_DATABASE: ${MYSQL_DATABASE_API}
+      MYSQL_USER: ${MYSQL_USER_API}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD_API}
     volumes:
       - ./mysql:/var/lib/mysql
     ports:
