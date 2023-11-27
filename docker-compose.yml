@@ -5,10 +5,10 @@ services:
     container_name: ${CONTAINER_NAME}
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD_ROOT_API}
-      MYSQL_DATABASE: ${MYSQL_DATABASE_API}
-      MYSQL_USER: ${MYSQL_USER_API}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD_API}
+      MYSQL_ROOT_PASSWORD: ${DATABASE_PASSWORD_ROOT_API}
+      MYSQL_DATABASE: ${DATABASE_DATABASE_API}
+      MYSQL_USER: ${DATABASE_USER_API}
+      MYSQL_PASSWORD: ${DATABASE_PASSWORD_API}
     volumes:
       - ./mysql:/var/lib/mysql
     ports:
