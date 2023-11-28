@@ -1,9 +1,9 @@
-import { CreateCatDto } from './dto/create-cat.dto';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
 import { Cat } from './entities/cat.entity';
+import { CreateCatDto } from './dto/create-cat.dto';
 import { UpdateCatDto } from './dto/update-cat.dto';
 
 @Injectable()
@@ -13,24 +13,24 @@ export class CatsService {
     private catsRepository: Repository<Cat>,
   ) {}
 
-  create(createCatDto: CreateCatDto) {
+  async create(createCatDto: CreateCatDto) {
     const cat = this.catsRepository.create(createCatDto);
-    return this.catsRepository.save(cat);
+    return await this.catsRepository.save(cat);
   }
 
-  findAll() {
-    return this.catsRepository.find();
+  async findAll() {
+    return await this.catsRepository.find();
   }
 
-  findOne(id: number) {
-    return this.catsRepository.findOneBy({ id });
+  async findOne(id: number) {
+    return await this.catsRepository.findOneBy({ id });
   }
 
-  update(id: number, updateCatDto: UpdateCatDto) {
-    return this.catsRepository.update(id, updateCatDto)
+  async update(id: number, updateCatDto: UpdateCatDto) {
+    return await this.catsRepository.update(id, updateCatDto);
   }
 
-  remove(id: number) {
-    return this.catsRepository.softDelete({ id });
+  async remove(id: number) {
+    return await this.catsRepository.softDelete(id);
   }
 }
