@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { BreedsModule } from './breeds/breeds.module';
 import { CatsModule } from './cats/cats.module';
 import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { UsersModule } from './users/users.module';
       synchronize: true,
     }),
     UsersModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],
